@@ -35,6 +35,12 @@ public class ClassController {
 		return response;
 	}
 	
+	@GetMapping("/getOneStudent/{id}")
+	public Student getStudent(@PathVariable("id") int id){
+		Student student = stuService.getStudentDetais(id);
+		return student;
+	}
+	
 	@GetMapping("/getAllStu")
 	public List<Student> getAll(){
 		List<Student> students = stuService.getAllStudents();
@@ -42,14 +48,7 @@ public class ClassController {
 	}
 	
 	
-	@GetMapping("/getStudent/{id}")
-	public Student getStudent(@PathVariable("id") int id){
-		Student student = stuService.getStudentDetais(id);
-		return student;
-	}
-	
-	
-	@GetMapping("/getSub")
+	@GetMapping("/getAllSub")
 	public List<Subject> controllerGetAllSubject(){
 		List<Subject> subjects = subService.getAllSubject();
 		return subjects;
